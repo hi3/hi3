@@ -1,0 +1,101 @@
+# hi3 :: Hugo & Tailwind CSS
+
+A minimal personal site built with Hugo and Tailwind CSS.
+
+## Setup
+
+```bash
+git clone https://github.com/rpinz/hi3
+npm install
+```
+
+## Development
+
+Start the development server with:
+```bash
+npm run start
+```
+Or using Make:
+```bash
+make start
+```
+
+This runs Hugo and Tailwind CSS in watch mode concurrently:
+- `hugo server` - Local Hugo development server (bound to network IP)
+- `tailwindcss --watch` - Watches for CSS changes
+
+## Building
+
+Generate optimized static HTML:
+```bash
+npm run build
+```
+Or using Make:
+```bash
+make build
+```
+
+Output is in the `public/` directory.
+
+## Deployment
+
+Deploy to production server:
+```bash
+make push
+```
+
+This runs the build and syncs the `public/` directory to the production server via rsync (requires SSH access configured).
+
+## Content Structure
+
+Add new pages to the `content/` directory with a `layout` field in front matter:
+
+```yaml
+---
+title: "Page Title"
+layout: "page-name"
+---
+```
+
+Corresponding layout template must exist in `themes/hi3/layouts/_default/page-name.html`.
+
+## Project Structure
+
+- `content/` - Page content in Markdown
+  - `_index.md` - Homepage content
+  - `work.md` - Work page
+- `themes/hi3/` - Hugo theme directory
+  - `layouts/` - Template files
+    - `404.html` - 404 page
+    - `index.html` - Homepage layout
+    - `_default/` - Default layout templates
+      - `baseof.html` - Base template wrapper
+    - `partials/` - Reusable template components
+      - `body/` - Body section partials (header, footer, social, work, video, etc.)
+      - `head/` - Head section partials (fonts, stylesheets, meta tags, etc.)
+  - `assets/css/` - CSS source files (Tailwind + custom styles + Solarized color definitions)
+  - `static/` - Static files copied to public/ as-is
+  - `tailwind.config.js` - Tailwind CSS configuration
+  - `postcss.config.js` - PostCSS configuration (PurgeCSS for production)
+- `public/` - Generated static site (build output, excluded from git)
+- `resources/` - Hugo resource caching (excluded from git)
+- `.github/copilot-instructions.md` - AI coding agent instructions
+
+## Styling
+
+The site uses **Tailwind CSS 3** with a Solarized Dark color palette:
+- Source CSS: `themes/hi3/assets/css/main.css` (Tailwind directives)
+- Built CSS: `themes/hi3/assets/css/style.css` (Tailwind output + PostCSS processing)
+- Color configuration in `tailwind.config.js` (Solarized palette with Orbitron font)
+- PostCSS pipeline: imports → Tailwind → autoprefixer → PurgeCSS (production only)
+
+## Make Targets
+
+- `make start` - Start development server
+- `make build` - Build production static site
+- `make push` - Build and deploy to production (rsync)
+- `make clean` - Remove build artifacts (`public/` and `resources/_gen/css/`)
+
+## Additional Resources
+
+For detailed development patterns and conventions, see `.github/copilot-instructions.md`.

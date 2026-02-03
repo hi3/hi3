@@ -1,0 +1,46 @@
+baseURL = "https://hi3.me/"
+title = "hi3.me"
+description = "... remember ... slavehack?"
+favicon = "/favicon.ico"
+author = "hi3"
+defaultContentLanguage = "en"
+language = "en-US"
+languageCode = "en-us"
+theme = "hi3"
+canonifyUrls = true
+enableRobotsTXT = true
+disableHugoGeneratorInject = true
+disableKinds = ["section","taxonomy","term","RSS","sitemap"]
+publishdir = 'public'
+copyright = '© 2008 - 2026 · All rights reserved.'
+
+[build]
+  writeStats = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+    author = "hi3"
+    title = ":: hi3.me ::"
+    description = "... remember ... slavehack?"
+[[params.social]]
+    title = "GitHub"
+    url = "https://github.com/hi3"
+[params.postcss]
+    postcss = true
+[params.palette]
+    text = "#657b83"
+    background = "#002b36"
+    accent = "#839496"
+    foreground = "#93a1a1"
+    separator = "#073642"
+    cyan = "#2aa198"
+    green = "#859900"
+    orange = "#cb4b16"
+    pink = "#d33682"
+    purple = "#6c71c4"
+    red = "#dc322f"
+    yellow = "#b58900"

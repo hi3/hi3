@@ -1,0 +1,20 @@
+<div class="flex bg-gradient-to-t from-[#000000] to-[#285098] rounded">
+  <img
+    src="{{ .Get "imageUrl" }}"
+    width="80"
+    height="80"
+    alt="Album Art"
+  />
+  <div class="text-left ml-2 mt-1">
+    <span class="font-bold text-base2">{{ .Get "title" }}</span>
+    <br />
+    <span class="text-base1">{{ .Get "artist" }}</span>
+    <br />
+    <a
+      class="text-base3 hover:text-magenta"
+      href="https://open.spotify.com/track/{{ .Get "spotifyId" }}"
+    >
+      Listen on Spotify
+    </a>
+  </div>
+</div>

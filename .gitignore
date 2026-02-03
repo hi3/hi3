@@ -1,0 +1,6 @@
+/node_modules
+/.hugo_build.lock
+/package-lock.json
+/public
+/resources/_gen
+style.css*

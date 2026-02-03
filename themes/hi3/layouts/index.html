@@ -1,0 +1,20 @@
+{{ define "main" }}
+<body class="w-screen bg-gradient-to-tr from-base03 to-base02 min-h-300">
+    <main class="h-screen w-screen min-h-300">
+      <header class="w-screen flex-none h-1/3">
+  {{ partial "body/header.html" . }}
+      </header>
+      <section class="w-screen flex h-1/3 justify-center objects-center">
+        <div class="flex flex-wrap h-full justify-center items-baseline">
+          <h3 class="font-Arvo font-bold text-red font-heading sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">hi3.</h3>
+          <span class="font-Arvo font-bold text-red font-heading sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">me</span>
+          {{ .Content }}
+        </div>
+      </section>
+      <footer class="w-screen flex h-1/3 justify-center objects-center">
+  {{ partial "body/footer.html" . }}
+      </footer>
+    </main>
+  {{ partial "body/script.html" . }}
+</body>
+{{ end }}

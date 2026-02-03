@@ -1,0 +1,12 @@
+{{ $css := resources.Get "/css/style.css" }}
+{{ $options := dict "config" "/" "noMap" true }}
+{{ $css := $css | css.PostCSS $options }}
+
+{{ if hugo.IsServer }}
+  {{ $css := $css | resources.PostProcess }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" type="text/css"/>
+{{ end }}
+{{ if hugo.IsProduction }}
+  {{ $css := $css | minify | fingerprint | resources.PostProcess }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" type="text/css" integrity="{{ $css.Data.Integrity }}"/>
+{{ end }}

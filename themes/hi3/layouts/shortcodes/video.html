@@ -1,0 +1,10 @@
+<div class="flex flex-wrap h-full w-full justify-center items-center">
+  <video
+    controls
+    autoplay
+    class="w-full h-auto"
+    style="max-width: {{ .Get "width" }}px; max-height: {{ .Get "height" }}px;">
+    <source src="{{ .Get "src" }}" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>

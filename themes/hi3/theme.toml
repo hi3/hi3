@@ -1,0 +1,12 @@
+name = "hi3"
+description = "Minimal personal site"
+license = "MIT"
+licenselink = "https://github.com/rpinz/hi3/blob/master/LICENSE"
+homepage = "http://hi3.me/"
+tags = []
+features = []
+min_version = "0.41.0"
+
+[author]
+  name = "hi3"
+  homepage = "https://hi3.me"

@@ -1,0 +1,9 @@
+<div id="{{ .Get "title" | lower | replace " " "-" }}" class="flex-1 min-w-80 p-6 border-l-4 bg-base02 rounded" style="border-left-color: {{ .Get "borderColor" }};">
+  <h3 class="text-base1 font-semibold mb-3">{{ .Get "title" }}</h3>
+  <p class="text-base0 leading-relaxed mb-4">
+    {{ .Inner }}
+  </p>
+  <button data-copy-text="{{ .Inner }}" class="px-4 py-2 text-base03 rounded hover:bg-base1 transition-colors" style="background-color: {{ .Get "bgColor" }};">
+    Copy
+  </button>
+</div>

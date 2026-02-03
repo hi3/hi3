@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+
+/* solarized */
+@import "solarized/solarized.css";
+
+/* assets */ 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
