@@ -1,4 +1,4 @@
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
@@ -12,6 +12,7 @@
     <title>{{if .IsHome}}{{ $.Site.Params.title}}{{else}}{{.Title}}{{end}}</title>
 {{ partial "head/fonts.html" . }}
 {{ partial "head/stylesheets.html" . }}
+{{ partial "head/scripts.html" . }}
     <meta name="msapplication-TileColor" content="#268bd2" />
     <meta name="theme-color" content="#268bd2" />
 {{ partial "head/favicons.html" . }}
