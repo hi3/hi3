@@ -21,6 +21,7 @@ module.exports = {
     },
     fontFamily: {
       Orbitron: ["Orbitron", "sans-serif"],
+      Arvo: ["Arvo", "serif"],
     },
     extend: {
       typography: {

@@ -1,29 +1,40 @@
 function copyToClipboard(text) {
-  // Use Clipboard API if available (requires secure context or localhost)
+  // Try Clipboard API first if available (requires secure context or localhost)
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text)
       .then(() => {
         console.log(`Copied text to clipboard`);
       })
       .catch((error) => {
-        console.error(`Could not copy text: ${error}`);
+        // Silently fall back to execCommand
+        fallbackCopy(text);
       });
   } else {
-    // Fallback for non-secure contexts
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    textarea.style.position = 'fixed';
-    textarea.style.opacity = '0';
-    document.body.appendChild(textarea);
-    textarea.select();
-    try {
-      document.execCommand('copy');
-      console.log(`Copied text to clipboard`);
-    } catch (error) {
-      console.error(`Could not copy text: ${error}`);
-    }
-    document.body.removeChild(textarea);
+    // Use fallback for non-secure contexts
+    fallbackCopy(text);
   }
+}
+
+function fallbackCopy(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  textarea.style.left = '-9999px';
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  try {
+    const successful = document.execCommand('copy');
+    if (successful) {
+      console.log(`Copied text to clipboard using fallback`);
+    } else {
+      console.error(`Fallback copy failed`);
+    }
+  } catch (error) {
+    console.error(`Could not copy text: ${error}`);
+  }
+  document.body.removeChild(textarea);
 }
 
 function ready(callback) {
