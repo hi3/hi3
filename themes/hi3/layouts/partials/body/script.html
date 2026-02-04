@@ -1,7 +1,0 @@
-{{ $js := resources.Get "js/main.js" }}
-{{ if $js }}
-  {{ if hugo.IsProduction }}
-    {{ $js = $js | minify | fingerprint }}
-  {{ end }}
-  <script src="{{ $js.Permalink }}" defer></script>
-{{ end }}
