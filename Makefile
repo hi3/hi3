@@ -8,9 +8,9 @@ ifeq (, $(shell which npm))
 	$(error "No NPM in $(PATH)")
 endif
 
-all: build
+all: push
 
-start:
+start: clean
 	@echo "starting ..."
 	@npm run start
 
@@ -18,7 +18,7 @@ build:
 	@echo "building ..."
 	@npm run build
 
-push: build
+push: clean build
 	@echo "pushing ..."
 	@rsync -avze 'ssh' ${SOURCE} ${DESTINATION}
 
