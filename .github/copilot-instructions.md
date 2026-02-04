@@ -6,7 +6,7 @@ A minimal personal site built with **Hugo** (static site generator) and **Tailwi
 
 - **Hugo**: Generates static HTML from Markdown content + Go templates
 - **Tailwind CSS v4**: Handles styling with CSS-first configuration and Solarized color palette
-- **Build Process**: `npm run build` runs Hugo and Tailwind CLI concurrently (see `package.json` scripts)
+- **Build Process**: `npm run build` runs Tailwind CLI then Hugo sequentially (see `package.json` scripts)
 - **Theme**: Custom `themes/hi3/` with partials-based component structure
 
 ### Key Directories
@@ -108,8 +108,8 @@ Use `{{ partial "path/to/partial.html" . }}` to include.
 
 ## Configuration
 
-### Hugo Config (`config.toml`)
-- Base URL: `https://ronpi.nz/`
+### Hugo Config (`hugo.toml`)
+- Base URL: `https://hi3.me/`
 - Disables sections, taxonomies, RSS, sitemaps
 - Social links defined as array: `[[params.social]]`
 - Color palette in `[params.palette]` (text color via Solarized base00)
@@ -131,7 +131,7 @@ Use `{{ partial "path/to/partial.html" . }}` to include.
 
 - **Add new page**: Create `content/pagename.md` with layout field + corresponding `layouts/_default/pagename.html` template
 - **Update header/footer**: Edit `partials/body/{header,footer}.html`
-- **Add social link**: Update `[[params.social]]` in `config.toml` + create partial in `partials/body/social/`
+- **Add social link**: Update `[[params.social]]` in `hugo.toml` + create partial in `partials/body/social/`
 - **Change colors**: Modify Solarized values in `main.css` `@theme` block or use Tailwind class names directly
 - **Add fonts**: Import in `partials/head/fonts.html`, declare in Tailwind `theme.fontFamily`
 
