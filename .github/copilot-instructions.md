@@ -24,15 +24,15 @@ Each page in `content/` requires:
 1. Markdown file with front matter specifying `layout` field
 2. Corresponding template in `themes/hi3/layouts/_default/{layout}.html`
 
-Example from `content/video.md`:
+Example from `content/work.md`:
 ```yaml
 ---
-title: "video"
-layout: "video"
+title: "work"
+layout: "work"
 ---
 ```
 
-Maps to `themes/hi3/layouts/_default/video.html`.
+Maps to `themes/hi3/layouts/_default/work.html`.
 
 ## Styling Conventions
 
@@ -132,7 +132,7 @@ Use `{{ partial "path/to/partial.html" . }}` to include.
 - **Add new page**: Create `content/pagename.md` with layout field + corresponding `layouts/_default/pagename.html` template
 - **Update header/footer**: Edit `partials/body/{header,footer}.html`
 - **Add social link**: Update `[[params.social]]` in `config.toml` + create partial in `partials/body/social/`
-- **Change colors**: Modify Solarized values in `tailwind.config.js` or use Tailwind class names directly
+- **Change colors**: Modify Solarized values in `main.css` `@theme` block or use Tailwind class names directly
 - **Add fonts**: Import in `partials/head/fonts.html`, declare in Tailwind `theme.fontFamily`
 
 ## External Dependencies
