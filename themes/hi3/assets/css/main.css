@@ -34,3 +34,15 @@
     content: "";
   }
 }
+
+@layer utilities {
+  .glow-lg {
+    text-shadow: 0 0 20px var(--tw-glow-color, rgba(255, 255, 255, 0.5));
+  }
+  .glow-red-500 {
+    --tw-glow-color: var(--color-red);
+  }
+  .glow-blue-500 {
+    --tw-glow-color: var(--color-blue);
+  }
+}
