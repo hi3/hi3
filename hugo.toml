@@ -29,8 +29,6 @@ copyright = '© 2008 - 2026 · All rights reserved.'
 [[params.social]]
     title = "GitHub"
     url = "https://github.com/hi3"
-[params.postcss]
-    postcss = true
 [params.palette]
     text = "#657b83"
     background = "#002b36"

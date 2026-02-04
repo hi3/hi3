@@ -13,7 +13,7 @@
     "start": "concurrently npm:start:*",
     "start:tw": "tailwindcss -i ./themes/hi3/assets/css/main.css -o ./themes/hi3/assets/css/style.css --watch",
     "start:hugo": "hugo --minify server --disableFastRender --bind $(eth0ip) --baseURL=http://$(eth0ip)",
-    "build": "concurrently npm:build:*",
+    "build": "npm run build:tw && npm run build:hugo",
     "build:tw": "tailwindcss -i ./themes/hi3/assets/css/main.css -o ./themes/hi3/assets/css/style.css --minify",
     "build:hugo": "hugo --minify"
   },
