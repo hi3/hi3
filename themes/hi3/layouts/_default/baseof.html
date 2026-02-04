@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 {{ partial "head/head.html" . }}
+<body class="w-screen bg-gradient-to-tr from-base03 to-base02 min-h-300">
+    <main class="h-screen w-screen min-h-300">
 {{ block "main" . }}{{ end }}
+    </main>
+</body>
 </html>

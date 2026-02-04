@@ -1,13 +1,9 @@
 {{ define "main" }}
-<body class="w-screen bg-gradient-to-tr from-base03 to-base02 min-h-300">
-    <main class="h-screen w-screen min-h-300">
       <header class="w-screen flex-none h-1/3">
   {{ partial "body/header.html" . }}
       </header>
   {{ partial "body/work.html" . }}
-      <footer class="w-screen flex h-1/3 justify-center objects-center">
+      <footer class="w-screen flex h-1/3 justify-center items-center">
   {{ partial "body/footer.html" . }}
       </footer>
-    </main>
-</body>
 {{ end }}
