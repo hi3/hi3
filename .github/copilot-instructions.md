@@ -2,6 +2,15 @@
 
 A minimal personal site built with **Hugo** (static site generator) and **Tailwind CSS v4** with a custom theme.
 
+## Security
+
+**Security is paramount.** All changes must consider security implications:
+- Only use official, trusted dependencies (prefer GitHub/npm verified publishers)
+- Avoid third-party GitHub Actions from unknown sources
+- Validate and sanitize any user-facing inputs
+- Review external resources (fonts, scripts, CDNs) for integrity
+- Keep dependencies updated to patch known vulnerabilities
+
 ## Architecture Overview
 
 - **Hugo**: Generates static HTML from Markdown content + Go templates
@@ -13,7 +22,7 @@ A minimal personal site built with **Hugo** (static site generator) and **Tailwi
 - `content/` - Markdown pages (`_index.md` is homepage)
 - `themes/hi3/layouts/` - Hugo templates
   - `_default/baseof.html` - Base template wrapper
-  - `_default/{index,video,work}.html` - Page-specific layouts
+  - `_default/{songs,work}.html` - Page-specific layouts
   - `partials/body/` - Reusable components (header, footer, social, etc.)
   - `partials/head/` - Head section partials (fonts, stylesheets, meta)
 - `themes/hi3/assets/css/` - Source CSS files (Tailwind input + overrides)
