@@ -1,0 +1,8 @@
+{{- $label := .Inner | strings.TrimSpace -}}
+{{- $query := .Get "q" -}}
+{{- $href := .Get "url" -}}
+{{- if and (not $href) $query -}}
+  {{- $href = printf "https://www.google.com/maps?q=%s" $query -}}
+{{- end -}}
+{{- $ariaLabel := .Get "ariaLabel" | default (printf "Open %s in Google Maps" $label) -}}
+<a href="{{ $href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaLabel }}">{{ $label }}</a>

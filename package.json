@@ -1,7 +1,7 @@
 {
   "name": "hi3",
   "version": "1.0.0",
-  "description": "Hugo & Tailwind CSS 3.0",
+  "description": "Hugo site with Tailwind CSS v4",
   "main": "index.js",
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
@@ -27,7 +27,7 @@
     "tailwindcss"
   ],
   "author": "RonPinz",
-  "license": "UNLICENSED",
+  "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/rpinz/hi3/issues"
   },

@@ -6,4 +6,12 @@
       <footer class="w-full flex h-1/3 justify-center items-center">
   {{ partial "body/footer.html" . }}
       </footer>
+
+    {{ $clipboardJs := resources.Get "js/clipboard.js" }}
+    {{ if $clipboardJs }}
+        {{ if hugo.IsProduction }}
+            {{ $clipboardJs = $clipboardJs | minify | fingerprint }}
+        {{ end }}
+        <script src="{{ $clipboardJs.Permalink }}" defer></script>
+    {{ end }}
 {{ end }}

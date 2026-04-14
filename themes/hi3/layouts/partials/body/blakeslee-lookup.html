@@ -1,0 +1,32 @@
+<section id="blakeslee-lookup-root" class="mb-4 rounded-2xl border border-[rgba(88,110,117,0.42)] bg-[rgba(0,43,54,0.55)] p-4 text-base2 md:mb-5 md:p-5">
+  <h2 class="mb-2 font-Arvo text-[clamp(1.2rem,3.4vw,1.55rem)] text-cyan">Apartment Lookup</h2>
+  <p class="mb-3 text-[0.92rem] leading-[1.55] text-base1">Enter an apartment number to get navigation details.</p>
+
+  <form id="blakeslee-lookup-form" class="flex flex-col gap-2 md:flex-row md:items-end md:gap-3" novalidate>
+    <div class="w-full md:max-w-[16rem]">
+      <label for="blakeslee-unit-input" class="mb-1 block text-[0.82rem] font-bold tracking-[0.04em] text-cyan uppercase">Apartment</label>
+      <input id="blakeslee-unit-input" name="apartment" inputmode="numeric" autocomplete="off" placeholder="e.g. 144" class="w-full rounded-lg border border-[rgba(131,148,150,0.42)] bg-[rgba(0,22,28,0.6)] px-3 py-2 text-base3 outline-none transition focus:border-cyan focus:ring-2 focus:ring-[rgba(42,161,152,0.34)]" />
+    </div>
+    <div class="flex gap-2">
+      <button id="blakeslee-lookup-submit" type="submit" class="rounded-lg border border-[rgba(42,161,152,0.58)] bg-[rgba(42,161,152,0.22)] px-3 py-2 text-[0.9rem] font-bold text-base3 transition hover:bg-[rgba(42,161,152,0.3)]">Lookup</button>
+      <button id="blakeslee-lookup-clear" type="button" class="rounded-lg border border-[rgba(131,148,150,0.5)] bg-[rgba(88,110,117,0.2)] px-3 py-2 text-[0.9rem] font-bold text-base2 transition hover:bg-[rgba(88,110,117,0.3)]">Clear</button>
+    </div>
+  </form>
+
+  <p id="blakeslee-lookup-error" class="mt-3 hidden rounded-lg border border-[rgba(220,50,47,0.45)] bg-[rgba(220,50,47,0.12)] px-3 py-2 text-[0.88rem] text-[#f9d9d8]"></p>
+
+  <div id="blakeslee-lookup-result" class="mt-3 hidden rounded-lg border border-[rgba(42,161,152,0.4)] bg-[rgba(0,22,28,0.58)] p-3">
+    <h3 class="mb-2 text-[0.86rem] font-bold tracking-[0.05em] text-cyan uppercase">Lookup Result</h3>
+    <dl id="blakeslee-lookup-rows" class="grid grid-cols-1 gap-x-4 gap-y-2 text-[0.9rem] leading-[1.55] text-base2 md:grid-cols-2"></dl>
+    <div id="blakeslee-lookup-visual" class="mt-3 hidden rounded-lg border border-[rgba(88,110,117,0.35)] bg-[rgba(7,54,66,0.45)] p-3"></div>
+    <p id="blakeslee-lookup-note" class="mt-2 hidden rounded border border-[rgba(181,137,0,0.45)] bg-[rgba(181,137,0,0.15)] px-2 py-1 text-[0.84rem] leading-[1.5] text-[#f5e4b5]"></p>
+  </div>
+</section>
+
+{{ $blakesleeJs := resources.Get "js/blakeslee-lookup.js" }}
+{{ if $blakesleeJs }}
+  {{ if hugo.IsProduction }}
+    {{ $blakesleeJs = $blakesleeJs | minify | fingerprint }}
+  {{ end }}
+  <script src="{{ $blakesleeJs.Permalink }}" defer></script>
+{{ end }}

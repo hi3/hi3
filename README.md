@@ -1,4 +1,4 @@
-# hi3 :: Hugo & Tailwind CSS
+# hi3 :: Hugo & Tailwind CSS v4
 
 A minimal personal site built with Hugo and Tailwind CSS.
 
@@ -8,6 +8,11 @@ A minimal personal site built with Hugo and Tailwind CSS.
 git clone https://github.com/rpinz/hi3
 npm install
 ```
+
+Requirements:
+
+- Node.js with npm
+- Hugo available on `PATH`
 
 ## Development
 
@@ -45,6 +50,8 @@ make push
 ```
 
 This runs the build and syncs the `public/` directory to the production server via rsync (requires SSH access configured).
+
+`make push` assumes the remote destination configured in `Makefile` is reachable and that Hugo has already generated `public/` locally during the build step.
 
 ## Content Structure
 
@@ -92,6 +99,11 @@ The site uses **Tailwind CSS v4** with a Solarized Dark color palette:
 - Color configuration in `main.css` via `@theme` block (Solarized palette with Orbitron & Arvo fonts)
 - Styling Pipeline: Tailwind CLI v4 (compiles `main.css` to `style.css`)
 - **Note**: `tailwind.config.js` has been removed in v4 migration; configuration is now CSS-based
+
+## Metadata Notes
+
+- Package metadata should stay aligned with the actual stack and the repository license.
+- AI coding guidance specific to this subproject lives in `hi3/.github/copilot-instructions.md`.
 
 ## Make Targets
 

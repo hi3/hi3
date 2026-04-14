@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="h-full overflow-y-auto bg-[radial-gradient(circle_at_12%_6%,rgba(42,161,152,0.2),transparent_34%),radial-gradient(circle_at_86%_0%,rgba(203,75,22,0.2),transparent_28%),linear-gradient(120deg,#002b36_0%,#073642_45%,#002028_100%)]">
+  <div class="mx-auto w-[min(1100px,calc(100%-1.5rem))] pt-6 pb-8 md:w-[min(1100px,calc(100%-3rem))] md:pt-8 md:pb-11">
+    <header class="mb-4 rounded-2xl border border-[rgba(131,148,150,0.35)] bg-[linear-gradient(135deg,rgba(7,54,66,0.92),rgba(0,43,54,0.75))] p-5 shadow-[0_20px_36px_rgba(0,0,0,0.35)] md:mb-5 md:p-6">
+      <p class="mb-2 text-xs font-bold tracking-[0.08em] text-cyan uppercase">Huntington Woods Delivery Reference</p>
+      <h1 class="mb-2 font-Arvo text-[clamp(1.6rem,5.2vw,2.5rem)] leading-[1.18] text-base3">{{ .Title }}</h1>
+      <p class="text-[0.98rem] leading-[1.55] text-base1">{{ .Description }}</p>
+    </header>
+
+    {{ partial "body/blakeslee-lookup.html" . }}
+
+    <article class="rounded-2xl border border-[rgba(88,110,117,0.42)] bg-[rgba(0,43,54,0.55)] p-4 text-base2 md:p-5
+      [&_h2]:mt-5 [&_h2]:mb-2 [&_h2]:font-Arvo [&_h2]:text-[clamp(1.25rem,3.8vw,1.7rem)] [&_h2]:text-cyan
+      [&_h3]:mt-5 [&_h3]:mb-2 [&_h3]:font-Arvo [&_h3]:text-[clamp(1.1rem,3vw,1.3rem)] [&_h3]:text-cyan
+      [&_p]:leading-[1.62] [&_p]:text-base2 [&_li]:leading-[1.62] [&_li]:text-base2
+      [&_ul]:my-3 [&_ul]:ml-[1.15rem] [&_ol]:my-3 [&_ol]:ml-[1.15rem] [&_li+li]:mt-1
+      [&_table]:my-3 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_table]:border-collapse [&_table]:table-fixed
+      [&_table]:rounded-xl [&_table]:border [&_table]:border-[rgba(88,110,117,0.48)] [&_table]:bg-[rgba(0,22,28,0.5)]
+      [&_thead]:bg-[rgba(42,161,152,0.2)]
+      [&_th]:border-r [&_th]:border-b [&_th]:border-r-[rgba(88,110,117,0.18)] [&_th]:border-b-[rgba(88,110,117,0.32)]
+      [&_th]:px-[0.38rem] [&_th]:py-[0.35rem] [&_th]:text-center [&_th]:align-middle [&_th]:text-[0.76rem] [&_th]:font-bold [&_th]:text-base3
+      [&_td]:border-r [&_td]:border-b [&_td]:border-r-[rgba(88,110,117,0.18)] [&_td]:border-b-[rgba(88,110,117,0.32)]
+      [&_td]:px-[0.38rem] [&_td]:py-[0.35rem] [&_td]:text-center [&_td]:align-middle [&_td]:text-[0.76rem] [&_td]:text-base2
+      [&_th]:whitespace-normal [&_td]:whitespace-normal [&_th]:break-words [&_td]:break-words [&_th]:min-w-14 [&_td]:min-w-14
+      md:[&_th]:px-[0.6rem] md:[&_th]:py-2 md:[&_th]:text-[0.9rem] md:[&_td]:px-[0.6rem] md:[&_td]:py-2 md:[&_td]:text-[0.9rem] md:[&_th]:min-w-16 md:[&_td]:min-w-16
+      [&_code]:rounded [&_code]:bg-[rgba(88,110,117,0.4)] [&_code]:px-1 [&_code]:py-[0.08rem] [&_code]:text-base3">
+      {{ .Content }}
+    </article>
+
+  </div>
+</section>
+{{ end }}
