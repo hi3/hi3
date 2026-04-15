@@ -1,7 +1,10 @@
-<meta property="og:locale" content="{{ .Site.Params.languageCode }}" />
+{{- $ogDescription := .Description | default (.Summary | plainify) | default .Site.Params.description -}}
+<meta property="og:locale" content="{{ .Site.LanguageCode }}" />
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
-<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} @ {{ .Site.Title }}{{ end }}" />
-<meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}" />
+<meta property="og:description" content="{{ $ogDescription }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
-<meta property="og:image" content="{{ .Site.Params.avatar | absURL }}" />
+{{ with .Site.Params.avatar }}
+<meta property="og:image" content="{{ . | absURL }}" />
+{{ end }}

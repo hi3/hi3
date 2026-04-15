@@ -1,0 +1,14 @@
+{{- $src := .Get "src" | default "/images/200BlakesleeSt_alpha.png" -}}
+{{- $alt := .Get "alt" | default "200 Blakeslee Street building and unit map" -}}
+<div style="width:100%; border:1px solid #073642; border-radius:8px; overflow:hidden;">
+  <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" style="display:block; width:100%; height:auto;" />
+</div>
+
+<details>
+  <summary>Open scrollable high-resolution map</summary>
+  <div style="margin-top:0.5rem; max-height:70vh; overflow:auto; -webkit-overflow-scrolling:touch; border:1px solid #073642; border-radius:8px;">
+    <img src="{{ $src }}" alt="High-resolution {{ $alt }}" loading="lazy" style="display:block; width:1400px; max-width:none; height:auto;" />
+  </div>
+</details>
+
+For full-screen zoom, open the image directly: <a href="{{ $src }}" target="_blank" rel="noopener">{{ $src | replaceRE "^/" "" }}</a>

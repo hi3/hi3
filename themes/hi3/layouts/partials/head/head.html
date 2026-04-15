@@ -1,14 +1,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {{- $metaDescription := .Description | default (.Summary | plainify) | default .Site.Params.description -}}
     <meta name="author" content="{{ .Site.Params.author }}">
-    <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+    <meta name="description" content="{{ $metaDescription }}" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="{{ .Site.BaseURL }}" />
-    <link rel="alternate" href="{{ .Site.BaseURL }}" hreflang="en" />
-    <link rel="alternate" href="{{ .Site.BaseURL }}" hreflang="x-default" />
-    <title>{{if .IsHome}}{{ $.Site.Params.title}}{{else}}{{.Title}}{{end}}</title>
+    <link rel="canonical" href="{{ .Permalink }}" />
+    <link rel="alternate" href="{{ .Permalink }}" hreflang="{{ .Site.Language.Lang }}" />
+    <link rel="alternate" href="{{ .Permalink }}" hreflang="x-default" />
+    <title>{{ if .IsHome }}{{ $.Site.Params.title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+{{ partial "head/open_graph.html" . }}
+{{ partial "head/twitter_card.html" . }}
 {{ partial "head/fonts.html" . }}
 {{ partial "head/stylesheets.html" . }}
 {{ partial "head/scripts.html" . }}

@@ -1,6 +1,12 @@
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} @ {{ .Site.Title }}{{ end }}" />
-<meta name="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
-<meta name="twitter:site" content="{{ .Site.BaseURL }}" />
-<meta name="twitter:creator" content="{{ .Site.Params.author }}" />
-<meta name="twitter:image" content="{{ .Site.Params.avatar | absURL }}" />
+{{- $twitterDescription := .Description | default (.Summary | plainify) | default .Site.Params.description -}}
+{{- $twitterHasImage := .Site.Params.avatar -}}
+<meta name="twitter:card" content="{{ if $twitterHasImage }}summary_large_image{{ else }}summary{{ end }}" />
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}" />
+<meta name="twitter:description" content="{{ $twitterDescription }}" />
+<meta name="twitter:url" content="{{ .Permalink }}" />
+{{ with .Site.Params.author }}
+<meta name="twitter:creator" content="{{ . }}" />
+{{ end }}
+{{ with .Site.Params.avatar }}
+<meta name="twitter:image" content="{{ . | absURL }}" />
+{{ end }}
